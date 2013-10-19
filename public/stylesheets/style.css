@@ -1,0 +1,24 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#searchTerm, #totalResults, #results {
+    margin: 5px;
+}
+
+#searchTerm .key, #totalResults .totalCount {
+    font-weight: bold;
+}
+
+#searchTerm {
+    float:left;
+}
+
+.form-group {
+    margin-right: 5px;
+}

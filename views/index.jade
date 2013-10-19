@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  div.navbar.navbar-inverse.navbar-fixed-top
+    div.container
+      div.navbar-header
+        a(class="navbar-brand", href="#")= title
+      #searchContainer.navbar-collapse.collapse
+        div.navbar-form.navbar-right
+          div.form-group
+            input(type="text", placeholder="type here..", class="form-control")
+          button.btn.btn-success(value="submit" type="submit") Search Programs
+
+  #searchResult.container
+    #searchTerm
+      span Searched for:
+      span.key
+    #totalResults
+      span Total results:
+      span.totalCount
+    #results
+      table
+
+  script(id="programTemplate", type ="text/template")
+
+    <% _.forEach( programList , function(program) { %>
+    tr
+      td.image-url <img height='90' width='150' scr='<%= program.get('Programme').ImageUri %>' style='background:url(<%= program.get("Programme").ImageUri %>)'>
+      td.title <%= program.get('Programme').Programme.Title %>
+      td.synopsis <%= program.get('Programme').ShortSynopsis %>
+      td.most-recent-episode <%= new Date(parseInt((program.get('Programme').MostRecentEpisode).substr(6))) %>
+    <% }) %>
