@@ -42,6 +42,20 @@ describe("Given View.Search", function () {
                     expect(spySet).toHaveBeenCalledWith({ searchText: 'ab12' });
                 });
             });
+
+            describe("And press 'Enter' button", function () {
+                beforeEach(function () {
+                    var e = jQuery.Event("keypress");
+                    e.which = 13;
+                    e.keyCode = 13;
+                    console.log(e);
+                    searchContainerView.$el.find("input[type='text']").trigger(e);
+                });
+
+                it("Should save value of search into model", function () {
+                    expect(spySet).toHaveBeenCalledWith({ searchText: 'ab12' });
+                });
+            });
         })
     });
 

@@ -5,17 +5,33 @@ ITV.Module.Search.Model = ITV.Module.Search.Model || {};
 
 ITV.Module.Search.Model.Search = Backbone.Model.extend({
 
-    initialize: function () {
-        this.on("change:searchText", this.callService, this);
+    defaults: {
+        searchText: ""
     },
 
-    callService: function () {
-        if( this.get('service') ) {
-            this.get('service').callService({
-                searchText: this.get('searchText'),
-                target: 'json',
-                platform: 'dotcom'
-            });
+    initialize: function () {
+        this.on("change:searchText", this.updateServiceParams, this);
+    },
+
+    updateServiceParams: function () {
+        console.log('calling service');
+        if(this.validate( this.get('searchText') )) {
+            if( this.get('service') ) {
+                this.get('service').callService({
+                    searchText: this.get('searchText'),
+                    target: 'json',
+                    platform: 'dotcom'
+                });
+            }
+        }
+
+    },
+
+    validate: function (attr) {
+        if( attr !== "" ) {
+            return true;
+        } else {
+            return false;
         }
     }
 });

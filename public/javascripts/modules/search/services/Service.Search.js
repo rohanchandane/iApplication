@@ -9,7 +9,6 @@ ITV.Module.Search.Service.Search = Backbone.Model.extend({
     },
 
     callService: function (searchData) {
-        console.log("Calling service");
         var ajaxParam = {
             url: this.get('serviceURL'),
             type: 'GET',
