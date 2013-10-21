@@ -28,6 +28,5 @@ ITV.Module.Search.Service.Search = Backbone.Model.extend({
     },
 
     searchFail: function () {
-        console.log("fail");
     }
 });

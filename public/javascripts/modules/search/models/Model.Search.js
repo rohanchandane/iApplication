@@ -14,7 +14,6 @@ ITV.Module.Search.Model.Search = Backbone.Model.extend({
     },
 
     updateServiceParams: function () {
-        console.log('calling service');
         if(this.validate( this.get('searchText') )) {
             if( this.get('service') ) {
                 this.get('service').callService({

@@ -1,7 +1,6 @@
 /**
  * Created by Rohan on 10/17/13.
  */
-console.log("Loading");
 
 (function($) {
 

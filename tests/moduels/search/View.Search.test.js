@@ -48,7 +48,6 @@ describe("Given View.Search", function () {
                     var e = jQuery.Event("keypress");
                     e.which = 13;
                     e.keyCode = 13;
-                    console.log(e);
                     searchContainerView.$el.find("input[type='text']").trigger(e);
                 });
 
